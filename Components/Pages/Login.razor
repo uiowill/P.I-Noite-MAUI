@@ -1,0 +1,38 @@
+@page "/login"
+@using P.I_Noite_MAUI;
+@using System.Text;
+@using System.Text.Json;
+@inject NavigationManager Navigation;
+
+<div class="background">
+    <div class="container">
+        <div class="form_area">
+            <p class="title">Login</p>
+                <img class="fotoLogo" src="imgs/logo_senac.png" alt="FotoLogo">
+                <form action="">
+                    <div class="form_group">
+                        <label class="sub_title" for="email">Email</label> 
+                        <input placeholder="Digite seu Email" id="email" class="form_style" type="email">
+                    </div>
+
+                    <div class="form_group">
+                        <label class="sub_title" for="password">Senha</label>
+                        <input placeholder="Digite sua Senha" id="password" class="form_style" type="password">
+                    </div>
+
+                    <div>
+                        <button class="btn">Entrar</button>
+                        <p>Não tem uma conta?
+                        <a class="link" href="">Cadastrar</a>
+                        </p>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
+
+ @code {
+
+    @* INTEGRAÇÃO DO MAUI COM BACKEND ( A FAZER )*@
+
+}
