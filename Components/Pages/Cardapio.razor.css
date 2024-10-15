@@ -1,0 +1,52 @@
+*{
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #007bff;
+        font-size: 2.5rem;
+    }
+
+    .product-card {
+        
+        margin-bottom: 30px;
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+
+    }
+
+    .product-card:hover {
+        transform: scale(1.05);
+    }
+
+    .product-card img {
+        border-radius: 15px 15px 0 0;
+        border-radius: 15px 15px 0 0;
+        width: 100%; /* Ajusta a largura da imagem para ocupar todo o card */
+        height: 200px; /* Defina uma altura fixa para todas as imagens */
+        object-fit: cover; /* Ajusta a imagem para cobrir o espaço, cortando se necessário */
+    }
+
+    .card-title { /* título do card de imagens */
+        font-size: 1.25rem;
+        color: #343a40;
+    }
+
+    .card-text { /* texto descrição de imagens */
+        color: #6c757d;
+    }
+
+    .btn-primary {  /* botões do de imagens */
+        /*background-color: #007bff;*/
+        background-color: #dd9933;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover { /* tasnsção de imagens */
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+}

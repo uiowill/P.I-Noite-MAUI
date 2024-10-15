@@ -1,0 +1,144 @@
+﻿@page "/cardapio"
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio de Produtos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Botões de Categoria -->
+    <div class="d-flex justify-content-center my-3">
+        <button class="btn btn-warning mx-2" onclick="filterProducts('Salgados')">Salgados</button>
+        <button class="btn btn-warning mx-2" onclick="filterProducts('Sopas')">Sopas</button>
+        <button class="btn btn-warning mx-2" onclick="filterProducts('Doces')">Doces</button>
+        <button class="btn btn-warning mx-2" onclick="filterProducts('Bebidas')">Bebidas</button>
+        <button class="btn btn-warning mx-2" onclick="filterProducts('Combo')">Combo</button>
+        <button class="btn btn-secondary mx-2" onclick="filterProducts('all')">Mostrar Todos</button>
+    </div>
+
+    <h1 class="text-center mt-5">Lista de Produtos</h1>
+    <div class="row mt-4" id="product-list">
+        <!-- Produto 1 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Doces">
+            <div class="card">
+                <img src="Imagens/bolo-brigadeiro.jpeg" class="card-img-top" alt="Bolo de Brigadeiro">
+                <div class="card-body">
+                    <h5 class="card-title">Bolo de brigadeiro</h5>
+                    <p class="card-text">Delicioso bolo de chocolate com cobertura de brigadeiro.</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Salgados">
+            <div class="card">
+                <img src="Imagens/bauru.jpg" class="card-img-top" alt="Bauru">
+                <div class="card-body">
+                    <h5 class="card-title">Bauru</h5>
+                    <p class="card-text">Sanduíche tradicional com presunto, queijo e tomate.</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Doces">
+            <div class="card">
+                <img src="Imagens/brigadeiro.jpg" class="card-img-top" alt="Brigadeiro">
+                <div class="card-body">
+                    <h5 class="card-title">Brigadeiro</h5>
+                    <p class="card-text">Docinho de chocolate coberto com granulados.</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 4 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Bebidas">
+            <div class="card">
+                <img src="Imagens/coca_cola.jpg" class="card-img-top" alt="Coca Cola">
+                <div class="card-body">
+                    <h5 class="card-title">Coca Cola</h5>
+                    <p class="card-text">Refrigerante gelado para acompanhar seu lanche.</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 5 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Salgados">
+            <div class="card">
+                <img src="Imagens/empadao.jpg" class="card-img-top" alt="Empadão">
+                <div class="card-body">
+                    <h5 class="card-title">Empadão</h5>
+                    <p class="card-text">Empadão de frango com massa crocante.</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 6 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Doces">
+            <div class="card">
+                <img src="Imagens/pudim.jpg" class="card-img-top" alt="Pudim">
+                <div class="card-body">
+                    <h5 class="card-title">Pudim</h5>
+                    <p class="card-text">Pudim de leite condensado com calda de caramelo.</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 7 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Salgados">
+            <div class="card">
+                <img src="Imagens/cachorro-quente.jpg" class="card-img-top" alt="Cachorro-quente">
+                <div class="card-body">
+                    <h5 class="card-title">Cachorro-quente</h5>
+                    <p class="card-text">Cachorro-quente com molho especial.</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produto 8 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Bebidas">
+            <div class="card">
+                <img src="Imagens/cafe.JPG" class="card-img-top" alt="Café">
+                <div class="card-body">
+                    <h5 class="card-title">Café</h5>
+                    <p class="card-text">Café quente passado na hora.</p>
+                    <a href="#" class="btn btn-primary">Adicionar ao Carrinho</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript Personalizado para filtrar produtos -->
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+
+            products.forEach((product) => {
+                if (category === 'all' || product.getAttribute('data-category') === category) {
+                    product.style.display = 'block'; // Mostra o produto
+                } else {
+                    product.style.display = 'none'; // Esconde o produto
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+<!-- Todo>
