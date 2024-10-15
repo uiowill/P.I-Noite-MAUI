@@ -10,6 +10,42 @@
         font-size: 2.5rem;
     }
 
+        /* Estilização dos Botões de Categoria */
+    .btn-warning {
+        background-color: #dd9933; /* Cor de fundo inicial (amarelo) */
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 5px 15px; /* Reduz o preenchimento para deixar o botão menor */
+        font-size: 1rem; /* tamanho da fonte */
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Cor de Fundo Azul ao Passar o Mouse */
+    .btn-warning:hover {
+        background-color: #0056b3; /* Azul ao clicar */
+        color: white; /* Mantém o texto branco */
+    }
+
+    /* Botão Secundário - Mostrar Todos */
+    .btn-secondary {
+        background-color: #0065A4; /* Cinza escuro */
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 5px 15px; /* Reduz o preenchimento para deixar o botão menor */
+        font-size: 1rem; /* tamanho da fonte */
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    /*  Botão Secundário - Mostrar Todos Cor de Fundo Azul Claro ao Passar o Mouse */
+    .btn-secondary:hover {
+        background-color: #dd9933;  /*  Ao clicar */
+        color: white;
+    }
+
     .product-card {
         margin-bottom: 30px;
         border-radius: 15px;
@@ -38,7 +74,6 @@
     }
 
     .btn-primary {  /* botões do de imagens */
-        /*background-color: #007bff;*/
         background-color: #dd9933;
         border-color: #007bff;
     }
