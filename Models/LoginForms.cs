@@ -1,6 +1,6 @@
 using System;
 
-namespace MauiApp1.Models;
+namespace P.I_Noite_MAUI.Models;
 
 
 public class LoginForms
