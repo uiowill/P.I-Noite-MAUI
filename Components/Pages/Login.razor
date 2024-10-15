@@ -4,57 +4,32 @@
 @using System.Text.Json;
 @inject NavigationManager Navigation;
 
- <div class="container">
-    <div class="form_area">
-        <p class="title">Login</p>
-        <img src="/Imagens/logo_senac.jpg" alt="" class="text-center texto mt-2" width="40px">
+<div class="background">
+    <div class="container">
+        <div class="form_area">
+            <p class="title">Login</p>
+                <img class="fotoLogo" src="imgs/logo_senac.png" alt="aaa">
+                <form action="">
+                    <div class="form_group">
+                        <label class="sub_title" for="email">Email</label> 
+                        <input placeholder="Digite seu Email" id="email" class="form_style" type="email">
+                    </div>
 
-        <form action="">
+                    <div class="form_group">
+                        <label class="sub_title" for="password">Senha</label>
+                        <input placeholder="Digite sua Senha" id="password" class="form_style" type="password">
+                    </div>
 
-            <div class="form_group">
-                <label class="sub_title" for="email">Email</label> 
-                <input placeholder="Digite seu Email" id="email" class="form_style" type="email">
-            </div>
-
-            <div class="form_group">
-                <label class="sub_title" for="password">Senha</label>
-                <input placeholder="Digite sua Senha" id="password" class="form_style" type="password">
-            </div>
-                <div>
-            <button class="btn">Entrar</button>
-                <p>Ainda não tem uma conta?
-                    <a class="link" href="">Cadastrar</a>
-                    </p>
-        </form>
-                </div>
-
-@* 
-<div class="container">
-    <div class="form_area">
-        <p class="title">Cadastrar</p>
-        <form action="">
-            <div class="form_group">
-                <label class="sub_title" for="name">Nome</label>
-                <input placeholder="Digite Seu Nome Completo" class="form_style" type="text">
-            </div>
-            <div class="form_group">
-                <label class="sub_title" for="email">Email</label>
-                <input placeholder="Digite seu Email" id="email" class="form_style" type="email">
-            </div>
-            <div class="form_group">
-                <label class="sub_title" for="password">Senha</label>
-                <input placeholder="Digite sua Senha" id="password" class="form_style" type="password">
-            </div>
-            <div>
-                <button class="btn">Cadastrar</button>
-                <p>Já tem uma conta? <a class="link" href="">Entrar</a></p><a class="link" href="">
-            </a></div><a class="link" href="">
-        
-    </a></form></div><a class="link" href="">
-</a></div>
-  *@
-
-
+                    <div>
+                        <button class="btn">Entrar</button>
+                        <p>Não tem uma conta?
+                        <a class="link" href="">Cadastrar</a>
+                        </p>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
 
  @code {
 
