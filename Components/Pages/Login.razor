@@ -1,0 +1,84 @@
+@page "/login"
+@using P.I-Noite-MAUI.Models;
+@using System.Text;
+@using System.Text.Json;
+@inject NavigationManager Navigation;
+
+ 
+<div class="formulario">
+
+ <img src="/Imagens/logo_senac.jpg" alt="" class="text-center texto mt-2">
+
+    <EditForm Model="@loginForms" OnSubmit="HandleSubmit">
+
+        <div class="row p-4">
+        <InputText class="teste" id="Username" placeholder="Usuario"  @bind-Value="@loginForms.Username"></InputText>
+        </div>
+
+        <div class="row  p-4">
+        <InputText  class="teste" id="Email" type="email" placeholder="Email" @bind-Value="@loginForms.Email" ></InputText>
+        </div> 
+
+        <div class="row p-4">
+        <InputText class= "teste" id="Password" type="password" placeholder="Senha" @bind-Value="@loginForms.Password"></InputText>
+        </div>
+    </EditForm>
+
+<div class="container1">
+         <button @onclick=Clicar class="button-confirm">Entrar</button> 
+         <button @onclick=AdicionarClienteBotao>Botao</button>
+   </div>
+   </div>
+
+
+@* @code {
+    private LoginForms loginForms = new LoginForms();
+    private string usernameCorreto = "teste";
+    private string senhaCorreta = "teste";
+
+    private void HandleSubmit()
+    {
+        Console.WriteLine(loginForms.Username);
+        Navigation.NavigateTo("Home");
+        if (loginForms.Username == usernameCorreto && loginForms.Password == senhaCorreta){
+            Navigation.NavigateTo("aula");
+        }
+    }
+    public void Clicar(){
+    GetClientes();
+    }
+
+    public async Task AdicionarClienteBotao(){
+        Cliente novoCliente = new Cliente(4, "adsad", "fdsfdsa@hotmail.com", false, null);
+        string json = JsonSerializer.Serialize(novoCliente);
+
+
+            string url = " http://localhost:5126/clientes";
+            HttpClient http = new HttpClient();
+            StringContent stringContent = new StringContent (json, Encoding.UTF8, "application/json");
+
+        var resposta = await http.GetAsync(url, stringContent);
+
+        if(resposta.IsSuccessStatusCode){
+           List<Cliente> clientes = await resposta.Content.ReadFromJsonAsync<List<Cliente>>();
+            Console.Write("Novo Cliente" + clientes.count);
+        }
+        else{
+            Console.WriteLine("Falha");
+            }
+    }
+    private async Task GetClientes(){
+            string url = " http://localhost:5126/clientes";
+            HttpClient http = new HttpClient();
+
+        var resposta = await http.GetAsync(url);
+
+        if(resposta.IsSuccessStatusCode){
+           List<Cliente> clientes = await resposta.Content.ReadFromJsonAsync<List<Cliente>>();
+            Console.Write("Sucesso" + clientes.Count);
+        }
+        else{
+            Console.WriteLine("Falha");
+            }
+    } *@
+}
