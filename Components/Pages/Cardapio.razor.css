@@ -46,6 +46,12 @@
         color: white;
     }
 
+   
+    /* Estilo para mudar o cursor do mouse para mãozinha no campo de pesquisa */
+    #search-input {
+        cursor: pointer;
+    }
+
     .product-card {
         margin-bottom: 30px;
         border-radius: 15px;
