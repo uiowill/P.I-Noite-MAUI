@@ -22,6 +22,16 @@
         <button class="btn btn-warning mx-2" onclick="filterProducts('Combo')">Combo</button>
         <button class="btn btn-secondary mx-2" onclick="filterProducts('all')">Mostrar Todos</button>
     </div>
+   
+
+    <!-- Campo de Pesquisa -->
+    <div class="text-center mb-4">
+        <input type="text" id="search-input" class="form-control w-50 mx-auto" placeholder="Digite para pesquisar...">
+    </div>
+
+    
+
+    
 
     <h1 class="text-center mt-5">Lista de Produtos</h1>
     
@@ -268,22 +278,42 @@
     </div>
 
     
+<!-- JavaScript para filtrar produtos -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- JavaScript Personalizado para filtrar produtos -->
     <script>
-        function filterProducts(category) {
+        let currentCategory = 'all';
+
+        // Função para filtrar por categoria
+        function filterByCategory(category) {
+            currentCategory = category;
+            filterProducts();
+        }
+
+        // Função para filtrar produtos com base na categoria e no texto de pesquisa
+        function filterProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
             const products = document.querySelectorAll('.product-card');
 
             products.forEach((product) => {
-                if (category === 'all' || product.getAttribute('data-category') === category) {
+                const title = product.querySelector('.card-title').textContent.toLowerCase();
+                const description = product.querySelector('.card-text').textContent.toLowerCase();
+                const productCategory = product.getAttribute('data-category');
+
+                // Verifica se o produto corresponde à categoria e ao termo de pesquisa
+                const matchesCategory = (currentCategory === 'all' || productCategory === currentCategory);
+                const matchesSearch = (title.includes(searchTerm) || description.includes(searchTerm));
+
+                if (matchesCategory && matchesSearch) {
                     product.style.display = 'block'; // Mostra o produto
                 } else {
                     product.style.display = 'none'; // Esconde o produto
                 }
             });
         }
+
+        // Evento de entrada para filtrar conforme o usuário digita
+        document.getElementById('search-input').addEventListener('input', filterProducts);
     </script>
 </body>
 </html>
-
 <!-- Todo>
