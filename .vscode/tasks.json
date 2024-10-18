@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "maui",
+			"targetFramework": "net8.0-windows10.0.19041.0",
+			"configuration": "Debug",
+			"project": "C:\\Users\\AULA\\Documents\\Luis Paulo\\proj\\P.I-Noite-MAUI\\P.I-Noite-MAUI.csproj",
+			"problemMatcher": [
+				"$msCompile",
+				"maui-problem-matcher-location",
+				"maui-problem-matcher",
+				"maui-problem-matcher-location-multiline",
+				"maui-problem-matcher-multiline"
+			],
+			"label": "maui: Build"
+		}
+	]
+}
