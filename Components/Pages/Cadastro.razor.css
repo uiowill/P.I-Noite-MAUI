@@ -76,3 +76,9 @@
     color: #0065A4;
     padding: 5px;
   }
+  .fotoLogo{
+    width: 170px;
+    height: 170px;
+    border: thick solid #dd9933;
+    border-radius: 50% 20% / 10% 40%;
+    }
