@@ -10,7 +10,6 @@
         font-size: 2.5rem;
     }
 
-<<<<<<< HEAD
         /* Estilização dos Botões de Categoria */
     .btn-warning {
         background-color: #dd9933; /* Cor de fundo inicial (amarelo) */
@@ -53,8 +52,6 @@
         cursor: pointer;
     }
 
-=======
->>>>>>> parent of 7e07fac (STYLE: hanges the style of the product category buttons on the menu screen)
     .product-card {
         margin-bottom: 30px;
         border-radius: 15px;
@@ -82,14 +79,4 @@
         color: #6c757d;
     }
 
-    .btn-primary {  /* botões do de imagens */
-        /*background-color: #007bff;*/
-        background-color: #dd9933;
-        border-color: #007bff;
-    }
-
-    .btn-primary:hover { /* tasnsção de imagens */
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
 }
