@@ -13,10 +13,10 @@
                 <img class="img_produto" src="imgs/Produtos2.png" alt="produtos">
             </div>
             <div class="col-8">
-                <form method="GET" action="BancoDados/salvar.txt">
+                <form method="GET" action="Models/Produtos.cs">
                     <div class="mt-3 form-floating">
-                        <input type="number" class="form-control desabilitado" id="codigo" name="codigo" readonly >
-                        <label for="codigo" class="form-label">Código</label>
+                        <input type="number" class="form-control desabilitado" id="id" name="id" readonly >
+                        <label for="id" class="form-label">Id</label>
                     </div>
                     <div class="mt-3 form-floating">
                         <input type="text" class="form-control" id="nome" name="nome" >
@@ -51,13 +51,15 @@
             <div class="col">
                 <h2>Produtos Cadastrados</h2>
             </div>
+    using P.I_Noite_MAUI.Models;
+    using P.I_Noite_MAUI.Models;
         </div>
         <div class="row">
             <div class="col">
                 <table class="table table-light table-hover">
                     <thead>
                         <tr>
-                            <th>Código</th>
+                            <th>Id</th>
                             <th>Nome do Produto</th>
                             <th>Categoria</th>
                             <th>Valor</th>
@@ -76,3 +78,24 @@
 
 
         <script src="_framework/blazor.webview.js" autostart="false"></script>
+
+@code{  
+public void Clicar(){
+        GetProdutos();
+    } 
+private async Task GetProdutos(){
+            string url = "http://localhost:3306/produtos";
+            HttpClient http = new HttpClient();
+
+        var resposta = await http.GetAsync(url);
+
+        if(resposta.IsSuccessStatusCode){
+            List <Produto> clientes = await resposta.Content.ReadFromJsonAsync <List<Produto>>();
+            Console.WriteLine("Sucesso -" + produtos.Count);
+            
+        }
+        else{
+            Console.WriteLine("Falha");
+            }
+    }
+} 
