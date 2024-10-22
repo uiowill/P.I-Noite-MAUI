@@ -1,21 +1,294 @@
-﻿<h1>cardapio</h1>
+﻿@page "/cardapio"
 
-<h3>item 1</h3>
-<p>descricao</p>
-<h3>item 1</h3>
-<p>descricao</p>
-<h3>item 1</h3>
-<p>descricao</p>
-<h3>item 1</h3>
-<p>descricao</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio de Produtos</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-<h3>preco 1</h3>
-<h3>preco 1</h3>
-<h3>preco 1</h3>
-<h3>preco 1</h3>
+    <div class="d-flex justify-content-center my-3">
+        <button class="btn btn-warning mx-2" onclick="filterByCategory('Salgados')">Salgados</button>
+        <button class="btn btn-warning mx-2" onclick="filterByCategory('Sopas')">Sopas</button>
+        <button class="btn btn-warning mx-2" onclick="filterByCategory('Doces')">Doces</button>
+        <button class="btn btn-warning mx-2" onclick="filterByCategory('Bebidas')">Bebidas</button>
+        <button class="btn btn-warning mx-2" onclick="filterByCategory('Combo')">Combo</button>
+        <button class="btn btn-secondary mx-2" onclick="filterByCategory('all')">Mostrar Todos</button>
+    </div>
 
-<button>pedir</button>
 
-@code {
+    <!-- Campo de Pesquisa -->
+    <div class="text-center mb-4">
+        <input type="text" id="search-input" class="form-control w-50 mx-auto" placeholder="Digite para pesquisar..." oninput="filterProducts()">
+    </div>
 
-}
+
+    <h1 class="text-center mt-5">Cardápio</h1>
+    
+    <div class="row mt-4" id="product-list">
+
+                                           <!-- SALGADOS -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Salgados">
+            <div class="card">
+                <img src="Img_cardapio/Salgados/bauru.jpg" class="card-img-top" alt="Bauru">
+                <div class="card-body">
+                    <h5 class="card-title">Bauru</h5>
+                    <p class="card-text">Sanduíche tradicional com presunto, queijo e tomate.</p>
+                </div>
+            </div>
+        </div>
+
+                                     <!-- SALGADOS 2 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Salgados">
+            <div class="card">
+                <img src="Img_cardapio/Salgados/cachorro-quente.jpg" class="card-img-top" alt="Cachorro quente">
+                <div class="card-body">
+                    <h5 class="card-title">Cachorro quente</h5>
+                    <p class="card-text">Cachorro quente tradicional</p>
+                </div>
+            </div>
+        </div>
+
+                                      <!-- SALGADOS 3 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Salgados">
+            <div class="card">
+                <img src="Img_cardapio/Salgados/pizza_portuguesa.jpg" class="card-img-top" alt="Pizza portuguesa">
+                <div class="card-body">
+                    <h5 class="card-title">Pizza portuguesa</h5>
+                    <p class="card-text">Combinação dde cogumelos, presunto, azeitonas, linguiça</p>
+                </div>
+            </div>
+        </div>
+
+                                      <!-- SALGADOS 4 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Salgados">
+            <div class="card">
+                <img src="Img_cardapio/Salgados/empadao.jpg" class="card-img-top" alt="Empadão">
+                <div class="card-body">
+                    <h5 class="card-title">Empadão</h5>
+                    <p class="card-text">Empadão e frango</p>
+                </div>
+            </div>
+        </div>
+
+                                            <!-- Sopa -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Sopas">
+            <div class="card">
+                <img src="Img_cardapio/Sopas/sopa_legumes.jpg" class="card-img-top" alt="Sopa de legumes">
+                <div class="card-body">
+                    <h5 class="card-title">Sopa</h5>
+                    <p class="card-text">Sopa de legumes </p>
+                </div>
+            </div>
+        </div>
+
+                                                <!-- Sopa 2-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Sopas">
+            <div class="card">
+                <img src="Img_cardapio/Sopas/sopa_de_frango.jpg" class="card-img-top" alt="sopa de frango">
+                <div class="card-body">
+                    <h5 class="card-title">Sopa</h5>
+                    <p class="card-text">Sopa de frango</p>
+                </div>
+            </div>
+        </div>
+
+                                             <!-- Sopa 3-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Sopas">
+            <div class="card">
+                <img src="Img_cardapio/Sopas/sopa_de_carne.jpg" class="card-img-top" alt="sopa de carne">
+                <div class="card-body">
+                    <h5 class="card-title">Sopa</h5>
+                    <p class="card-text">Sopa de carne</p>
+                </div>
+            </div>
+        </div>
+        
+                                             <!-- Sopa 4-->
+
+         <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Sopas">
+            <div class="card">
+                <img src="Img_cardapio/Sopas/sop_mandioquinha.jpg" class="card-img-top" alt="Sopa Mandioquinha">
+                <div class="card-body">
+                    <h5 class="card-title">Sopa</h5>
+                    <p class="card-text">Sopa de mandioquinha</p>
+                </div>
+            </div>
+        </div>
+        
+                                          <!-- DOCES -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Doces">
+            <div class="card">
+                <img src="Img_cardapio/Doces/brigadeiro.jpg" class="card-img-top" alt="Brigadeiro">
+                <div class="card-body">
+                    <h5 class="card-title">Brigadeiro</h5>
+                    <p class="card-text">Docinho de chocolate coberto com granulados.</p>
+                </div>
+            </div>
+        </div>
+
+                                                 <!-- DOCES 2 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Doces">
+            <div class="card">
+                <img src="Img_cardapio/Doces/bolo-brigadeiro.jpeg" class="card-img-top" alt="Bolo de Brigadeiro">
+                <div class="card-body">
+                    <h5 class="card-title">Bolo de brigadeiro</h5>
+                    <p class="card-text">Delicioso bolo de chocolate com cobertura de brigadeiro.</p>
+                </div>
+            </div>
+        </div>
+
+                                            <!-- DOCES 3-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Doces">
+            <div class="card">
+                <img src="Img_cardapio/Doces/pudim.jpg" class="card-img-top" alt="Pudim">
+                <div class="card-body">
+                    <h5 class="card-title">Pudim</h5>
+                    <p class="card-text">Pudim gelao</p>
+                </div>
+            </div>
+        </div>
+
+                                               <!-- DOCES 4 -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Doces">
+            <div class="card">
+                <img src="Img_cardapio/Doces/bolo_de_pote.jpeg" class="card-img-top" alt="Bolo de pote">
+                <div class="card-body">
+                    <h5 class="card-title">Bolo de pote</h5>
+                    <p class="card-text">Bolo de pote com cobertura de brigadeiro.</p>
+                </div>
+            </div>
+        </div>
+
+                                             <!-- BEBIDAS-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Bebidas">
+            <div class="card">
+                <img src="Img_cardapio/Bebidas/cafe.JPG" class="card-img-top" alt="Café">
+                <div class="card-body">
+                    <h5 class="card-title">Café</h5>
+                    <p class="card-text">Café quente passado na hora.</p>
+                </div>
+            </div>
+        </div>
+        
+                                         <!-- BEBIDAS 2-->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Bebidas">
+            <div class="card">
+                <img src="Img_cardapio/Bebidas/coca_cola.jpg" class="card-img-top" alt="Coca Cola">
+                <div class="card-body">
+                    <h5 class="card-title">Coca Cola</h5>
+                    <p class="card-text">Refrigerante gelado para acompanhar seu lanche.</p>
+                </div>
+            </div>
+        </div>
+        
+                                             <!-- BEBIDAS 3-->
+         <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Bebidas">
+            <div class="card">
+                <img src="Img_cardapio/Bebidas/suco-fruta.jpg" class="card-img-top" alt="Suco fruta">
+                <div class="card-body">
+                    <h5 class="card-title">Suco fruta</h5>
+                    <p class="card-text">Diversos sucos de frutas</p>
+                </div>
+            </div>
+        </div>
+
+                                                <!-- BEBIDAS 4-->
+         <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Bebidas">
+            <div class="card">
+                <img src="Img_cardapio/Bebidas/cha_verde.jpg" class="card-img-top" alt="Cha verde">
+                <div class="card-body">
+                    <h5 class="card-title">Chá</h5>
+                    <p class="card-text">Cha verde</p>
+                </div>
+            </div>
+        </div>
+                                                 <!-- COMBOS -->
+         <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Combo">
+            <div class="card">
+                <img src="Img_cardapio/Combo/empadinha_mini_coca.jpg" class="card-img-top" alt="Empadinha mini coca">
+                <div class="card-body">
+                    <h5 class="card-title">Combo</h5>
+                    <p class="card-text">Empadinha mini-coca</p>
+                </div>
+            </div>
+        </div>
+
+                                                   <!-- COMBOS 2 -->
+         <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Combo">
+            <div class="card">
+                <img src="Img_cardapio/Combo/kit_salgados_coca-lata.jpg" class="card-img-top" alt="Kit Salgados">
+                <div class="card-body">
+                    <h5 class="card-title">Combo</h5>
+                    <p class="card-text">Kit Salgados + coca-cola lata</p>
+                </div>
+            </div>
+        </div>
+                                                   <!-- COMBOS 3 -->
+         <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Combo">
+            <div class="card">
+                <img src="Img_cardapio/Combo/nove_empadas.jpg" class="card-img-top" alt="Nove empadas">
+                <div class="card-body">
+                    <h5 class="card-title">Combo</h5>
+                    <p class="card-text">Nove empadas de sabores sortidos</p>
+                </div>
+            </div>
+        </div>
+                                                   <!-- COMBOS 4 -->
+         <div class="col-12 col-sm-6 col-md-4 col-lg-3 product-card" data-category="Combo">
+            <div class="card">
+                <img src="Img_cardapio/Combo/combo_do_aniversariante.jpg" class="card-img-top" alt="pombo_do_aniversariante">
+                <div class="card-body">
+                    <h5 class="card-title">Combo</h5>
+                    <p class="card-text">Combo do aniversariante</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript para filtrar produtos -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentCategory = 'all';
+
+        function filterByCategory(category) {
+            currentCategory = category;
+            filterProducts();
+        }
+
+        function filterProducts() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+
+            products.forEach(product => {
+                const title = product.querySelector('.card-title').textContent.toLowerCase();
+                const description = product.querySelector('.card-text').textContent.toLowerCase();
+                const productCategory = product.getAttribute('data-category');
+
+                const matchesCategory = currentCategory === 'all' || productCategory === currentCategory;
+                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+
+                if (matchesCategory && matchesSearch) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        // Adiciona o evento para pesquisar em tempo real
+        document.getElementById('search-input').addEventListener('input', filterProducts);
+    </script>
+    
+
+
+    </body>
+</html>
+<!-- Todo>
