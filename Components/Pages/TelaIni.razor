@@ -1,96 +1,113 @@
 @page "/TelaIni"
+@inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Components.Web
 
-
-
-
-    <style>
-    h1{color:#003D6C ;}
-    .botao{
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+        background-image: url('imgs/background-pattern.png'); /* Imagem de fundo decorativa */
+        background-size: cover;
+    }
+    
+    .container {
+        background-color: white; /* Fundo branco para destacar o conteúdo */
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra ao redor do container */
+    }
+    
+    h1 {
+        color: #003D6C;
+        margin: 0;
+        padding: 20px 0;
+        text-align: center; /* Centraliza o título */
+    }
+    
+    .botao, .botao2 {
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .botao {
         background-color: #dd9933;
-        color:#003D6C;
-        margin:20px;
-        height: 90px;
-        width:135px;
-       
-       
-        
-    }
-    .botao2{
-         background-color: #dd9933;
-        color:#003D6C;
-        margin: 25px;
-        height:90px;
-        width: 145px;
-
-    }
-    .botao3{
-         background-color: #dd9933;
-        color:#003D6C;
-        margin: 20px;
-        height:75px;
+        color: #003D6C;
+        height: 75px;
         width: 140px;
-        
+        border-radius: 10px;
     }
-    .botao4{
-         background-color: #dd9933;
-        
-        height:120px;
-        width: 120px;
-        
 
+    .botao2 {
+        background-color: #dd9933;
+        color: #003D6C;
+        height: 85px;
+        width: 165px;
+        margin: 20px;
+        border-radius: 10px;
+        margin-top: 50px;
     }
-    .linha1{
+
+    .botao:hover, .botao2:hover {
+        background-color: #c68a29;
+        transform: translateY(-2px);
+    }
+
+    .linha1 {
         display: flex;
-       
-        justify-content: space-between; 
-       
-        
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
     }
-    .linha2{
+
+    .linha2 {
         display: flex;
-        justify-content: flex-end;
-        margin-top:20px;
-        margin-right: 15px;
-        
-        
+        justify-content: center;
+        flex-wrap: wrap;
     }
-    .coluna{
-        
-        display: flex;
-        flex-flow: column;
-        margin-right: 1000px;
-        margin-top:15px ;
-       
-    }
-  
-    </style>
+</style>
 
+<div class="container">
+    <div class="linha1">
+        <img src="imgs/logo_senac.jpg" alt="Logo" width="150px" height="100" />
+        <h1>TELA DE FUNCIONÁRIO</h1>
+        <button class="botao" @onclick="ClickDeslogar">DESLOGAR</button>
+    </div>
 
-
-
-<div class ="linha1">
-<img src="imgs/logo_senac.jpg" alt="Logo" width="150px" height="100">
-<h1>CARDÁPIO SENAC</h1>
-<button class="botao">DESLOGAR</button>
+    <div class="linha2">
+        <button class="botao2" @onclick="ClickCardapio">CARDÁPIO</button>
+        <button class="botao2" @onclick="ClickCadastroDeProdutos">CADASTRAR PRODUTO</button>
+        <button class="botao2" @onclick="ClickCriarCardapio">CRIAR CARDÁPIO DO DIA</button>
+    </div>
 </div>
 
-<div class ="linha2">
-    <button class="botao2">SALGADOS</button>
-    <button class="botao2">SOPA</button>
-    <button class="botao2">DOCES</button>
-    <button class="botao2">BEBIDAS</button>
-    <button class="botao2">COMBOS</button>
-    <button class="botao4"style="border-radius:50%;"><img src="imgs/lupa.png"alt="lupa" width="25px" height="25px"><strong>BUSCAR</strong></button>
-</div>
-<div class="coluna">
-  <button class="botao3">HOME</button>
-    <button class="botao3">CARDÁPIO</button>
-    <button class="botao3">CADASTRAR PRODUTO</button>
-    <button class="botao3">CRIAR CARDÁPIO DO DIA</button>
-</div>
-<button>PRODUTOS</button>
 
+@code{
 
+   void ClickHome()
+    {
+       Navigation.NavigateTo("/");
+    }
+    void ClickCardapio()
+    {
+        Navigation.NavigateTo("/Cardapio");
+    }
+    void ClickCadastroDeProdutos()
+    {
+        Navigation.NavigateTo("/");
+    }
+    void ClickDeslogar()
+    {
+        Navigation.NavigateTo("/");
+    }
+    void ClickCriarCardapio()
+    {
+        Navigation.NavigateTo("/");
+    }
+}
 
 
 
