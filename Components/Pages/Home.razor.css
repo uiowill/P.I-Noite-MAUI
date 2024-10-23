@@ -26,10 +26,10 @@
     }
     /* Botão Secundário - Mostrar Todos */
     .btn-secondary {
-        background-color: #0065A4; /* Cinza escuro */
+        background-color: #0056b3; 
         color: white;
         border: none;
-        border-radius: 30px;
+        border-radius: 20px;
         padding: 5px 15px; /* Reduz o preenchimento para deixar o botão menor */
         font-size: 1rem; /* tamanho da fonte */
         font-weight: bold;
