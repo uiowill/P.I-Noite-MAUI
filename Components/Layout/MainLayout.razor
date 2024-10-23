@@ -9,13 +9,12 @@
 
     <main>
         <div class="top-row d-flex justify-content-between align-items-center px-4">
-            <!-- Link 'About' -->
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+         
             
             <!-- Botão de Login que só aparece em Home ou Cardápio -->
             @if (IsHomeOrCardapio())
             {
-                <button class="btn btn-primary ml-2" @onclick="RedirectToLogin">Iniciar sessão</button>
+                <button class="btn-user-admin ml-2" @onclick="RedirectToLogin">Iniciar sessão</button>
             }
         </div>
 

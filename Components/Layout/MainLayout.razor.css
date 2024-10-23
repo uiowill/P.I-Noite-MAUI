@@ -13,28 +13,31 @@ main {
 }
 
 .top-row {
-    background-color: #f7f7f7;
+    background-color: #dd9933; /* Cor de fundo do Layout (amarelo) */
     border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
+    justify-content: flex-start; /* Muda para alinhar o conteúdo à esquerda */
     height: 3.5rem;
     display: flex;
     align-items: center;
+    padding-left: 1rem; /* Adiciona espaçamento à esquerda */
 }
 
-    .top-row ::deep a, .top-row ::deep .btn-link {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-        text-decoration: none;
-    }
+.btn-user-admin {
+    margin-left: auto; /* Caso precise ajustar a margem para alinhamento no futuro */
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px; /* Reduz o preenchimento para deixar o botão menor */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-user-admin:hover {
+    background-color: #dd9933; /* Azul ao clicar */
+    color: white; /* Mantém o texto branco */
+}
 
-        .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
-            text-decoration: underline;
-        }
-
-        .top-row ::deep a:first-child {
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
 
 @media (max-width: 640.98px) {
     .top-row {
