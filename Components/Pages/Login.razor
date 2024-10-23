@@ -8,31 +8,55 @@
     <div class="container">
         <div class="form_area">
             <p class="title"></p>
-                <img class="fotoLogo" src="imgs/logo_senac3.png" alt="FotoLogo">
-                <form action="">
-                    <div class="form_group">
-                        <label class="sub_title" for="email">Email</label> 
-                        <input placeholder="Digite seu Email" id="email" class="form_style" type="email">
-                    </div>
+            <img class="fotoLogo" src="imgs/logo_senac3.png" alt="FotoLogo">
+            
+            <form>
+                <div class="form_group">
+                    <label class="sub_title" for="email">Email</label> 
+                    <input placeholder="Digite seu Email" @bind="email" id="email" class="form_style" type="email">
+                </div>
 
-                    <div class="form_group">
-                        <label class="sub_title" for="password">Senha</label>
-                        <input placeholder="Digite sua Senha" id="password" class="form_style" type="password">
-                    </div>
+                <div class="form_group">
+                    <label class="sub_title" for="password">Senha</label>
+                    <input placeholder="Digite sua Senha" @bind="password" id="password" class="form_style" type="password">
+                </div>
 
-                    <div>
-                        <button class="btn">Entrar</button>
-                        <p>Não tem uma conta?
-                        <a class="link" href="Cadastro">Cadastrar</a>
-                        </p>
-                    </div>
-                </form>
+                <div>
+                    <button type="button" class="btn" @onclick="LoginAction">Entrar</button>
+                    <p>Não tem uma conta?
+                    <a class="link" href="Cadastro">Cadastrar</a>
+                    </p>
+                    @if (!string.IsNullOrEmpty(errorMessage))
+                    {
+                        <p style="color:red;">@errorMessage</p>
+                    }
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
- @code {
+@code {
+    private string email = "";
+    private string password = "";
+    private string errorMessage = "";
 
-    @* INTEGRAÇÃO DO MAUI COM BACKEND ( A FAZER )*@
+    // Credenciais pré-definidas
+    private string validEmail = "admin@senac.com";
+    private string validPassword = "admin";
 
+    
+    private void LoginAction()
+    {
+        if (email == validEmail && password == validPassword)
+        {
+            // Redireciona para a página principal (ou qualquer outra)
+            Navigation.NavigateTo("/telaIni");
+        }
+        else
+        {
+            // Exibe uma mensagem de erro
+            errorMessage = "Email ou senha incorretos. Tente novamente.";
+        }
+    }
 }
