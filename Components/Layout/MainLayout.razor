@@ -1,4 +1,6 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.Components.Web
 
 <div class="page">
     <div class="sidebar">
@@ -6,8 +8,15 @@
     </div>
 
     <main>
-        <div class="top-row px-4">
+        <div class="top-row d-flex justify-content-between align-items-center px-4">
+            <!-- Link 'About' -->
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            
+            <!-- Botão de Login que só aparece em Home ou Cardápio -->
+            @if (IsHomeOrCardapio())
+            {
+                <button class="btn btn-primary ml-2" @onclick="RedirectToLogin">Iniciar sessão</button>
+            }
         </div>
 
         <article class="content px-4">
@@ -15,3 +24,21 @@
         </article>
     </main>
 </div>
+
+@code {
+    private void RedirectToLogin()
+    {
+        NavigationManager.NavigateTo("/login"); // Caminho da página de login
+    }
+
+    private bool IsHomeOrCardapio()
+    {
+        // Obtém o caminho relativo da URL atual
+        var currentUri = NavigationManager.ToBaseRelativePath(NavigationManager.Uri).ToLower();
+
+        // Verifica se a URL atual é 'home' ou 'cardapio'
+        return currentUri == "" ;
+    }
+}
+
+@* Comparo diretamente o caminho com "home" ou "cardapio", que são os nomes esperados para as páginas. *@
