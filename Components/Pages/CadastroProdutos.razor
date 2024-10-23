@@ -1,4 +1,8 @@
 @page "/CadastroProdutos"
+@using Front.Models;
+@using System.Text;
+@using System.Text.Json;
+@inject NavigationManager Navigation;
 
         <div class="container">
     
@@ -13,36 +17,31 @@
                 <img class="img_produto" src="imgs/Produtos2.png" alt="produtos">
             </div>
             <div class="col-8">
-                <form method="GET" action="Models/Produtos.cs">
+                <EditForm Model="@produto" OnSubmit="HandleSubmit">
                     <div class="mt-3 form-floating">
-                        <input type="number" class="form-control desabilitado" id="id" name="id" readonly >
+                        <InputNumber @bind-Value="@produto.Id" type="number" class="form-control desabilitado" id="id" name="id" readonly ></InputNumber>
                         <label for="id" class="form-label">Id</label>
                     </div>
                     <div class="mt-3 form-floating">
-                        <input type="text" class="form-control" id="nome" name="nome" >
+                        <InputText @bind-Value="@produto.Nome" type="text" class="form-control" id="nome" name="nome" ></InputText>
                         <label for="nome" class="form-label">Nome do Produto</label>
                     </div>
                     <div class="mt-3 form-floating">
-                        <input type="valor" class="form-control" id="valor" name="valor" >
-                        <label for="valor" class="form-label">Valor</label>
+                        <InputNumber @bind-Value="@produto.Valor" type="number" class="form-control" id="preco" name="preco" ></InputNumber>
+                        <label for="preco" class="form-label">Preço</label>
                     </div>
+                    
                     <div class="mt-3 form-floating">
                         <div class="row"> 
                         <div class="col">
-                            <button type="button" class="btn btn-primary form-control botaoNovo">
-                                Novo
+                            <button @onclick="Clicar" type="button" class="btn btn-primary form-control botaoAdicionar">
+                                Adicionar
                             </button>
-                        </div>
-                        <div class="col"> 
-                            <button type="submit" class="btn btn-primary form-control botaoSalvar">
-                                Salvar
-                            </button>
-
                         </div>
                         </div>
                     </div>
                     
-                </form>
+                </EditForm>
             </div>
         </div>
     </div>
@@ -51,8 +50,7 @@
             <div class="col">
                 <h2>Produtos Cadastrados</h2>
             </div>
-    using P.I_Noite_MAUI.Models;
-    using P.I_Noite_MAUI.Models;
+
         </div>
         <div class="row">
             <div class="col">
@@ -62,7 +60,7 @@
                             <th>Id</th>
                             <th>Nome do Produto</th>
                             <th>Categoria</th>
-                            <th>Valor</th>
+                            <th>Preço</th>
                             <th>Editar</th>
                             <th>Excluir</th>
                         </tr>
@@ -80,22 +78,46 @@
         <script src="_framework/blazor.webview.js" autostart="false"></script>
 
 @code{  
-public void Clicar(){
-        GetProdutos();
+ Produto produto = new Produto();
+ void HandleSubmit(){
+    Console.WriteLine(produto.Id);
+    Console.WriteLine(produto.Nome);
+    Console.WriteLine(produto.Valor);
+
+ }
+ void Clicar(){
+        AdicionarProduto();
     } 
-private async Task GetProdutos(){
-            string url = "http://localhost:3306/produtos";
+async Task GetProdutos(){
+            string url = "http://localhost:5292/listaprodutos";
             HttpClient http = new HttpClient();
 
         var resposta = await http.GetAsync(url);
 
         if(resposta.IsSuccessStatusCode){
-            List <Produto> clientes = await resposta.Content.ReadFromJsonAsync <List<Produto>>();
-            Console.WriteLine("Sucesso -" + produtos.Count);
+        
+            Console.WriteLine("Sucesso ");
             
         }
         else{
             Console.WriteLine("Falha");
             }
     }
+    async void AdicionarProduto(){
+        string json = JsonSerializer.Serialize(new Produto(produto.Nome,"",produto.Valor));
+        string url = "http://localhost:5292/adicionar";
+        HttpClient http = new HttpClient();
+        StringContent stringContent = new StringContent (json, Encoding.UTF8, "application/json");
+
+        var resposta = await http.PostAsync(url, stringContent);
+
+        if(resposta.IsSuccessStatusCode){
+            
+            Console.WriteLine("Sucesso" );
+        }
+        else{
+            Console.WriteLine("Falha!");
+        } 
 } 
+
+}
