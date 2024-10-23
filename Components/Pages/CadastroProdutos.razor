@@ -95,8 +95,9 @@ async Task GetProdutos(){
         var resposta = await http.GetAsync(url);
 
         if(resposta.IsSuccessStatusCode){
-        
-            Console.WriteLine("Sucesso ");
+            List <Produto> produtos = await resposta.Content.ReadFromJsonAsync <List<Produto>>();
+            Console.WriteLine("Sucesso -" + produtos.Count);
+            //Console.WriteLine("Sucesso ");
             
         }
         else{
