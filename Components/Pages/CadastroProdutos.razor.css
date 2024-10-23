@@ -1,0 +1,24 @@
+.img_produto{
+    width: 100%;
+}
+
+.botaoSalvar{
+    background: rgb(252, 193, 18);
+    background: radial-gradient(circle, rgb(208,56,56) 0%, rgb(119,16,9) 100%,);
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+
+}
+.botaoNovo{
+    background: rgb(252, 193, 18);
+    background: radial-gradient(circle, rgb(211,199,199) 0%, rgb(42,35,35) 100%,);
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+
+}
+
+.desabilitado{
+    background-color: #ccc;
+}
