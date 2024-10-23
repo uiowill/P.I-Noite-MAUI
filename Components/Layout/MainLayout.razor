@@ -2,22 +2,49 @@
 @inject NavigationManager NavigationManager
 @using Microsoft.AspNetCore.Components.Web
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<!-- Cabeçalho -->
+<header class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="/">
+            <img src="img_cardapio/logo_senac.png" alt="Logo do Restaurante" class="d-inline-block align-text-top" style="width: 70px">
+        </a>
 
-    <main>
-        <div class="top-row d-flex justify-content-between align-items-center px-4">
-         
-            
+        <!-- Botão para o menu colapsável (Mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links de navegação -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="mx-auto w-100 d-flex justify-content-center">
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/telaIni">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contatos">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sobre">Sobre</a>
+                    </li>
+                </ul>
+            </div>
             <!-- Botão de Login que só aparece em Home ou Cardápio -->
             @if (IsHomeOrCardapio())
             {
-                <button class="btn-user-admin ml-2" @onclick="RedirectToLogin">Iniciar sessão</button>
+                <button class="btn btn-user-admin" @onclick="RedirectToLogin">Iniciar Sessão</button>
             }
         </div>
+    </div>
+</header>
 
+<!-- Corpo da Página -->
+<div class="page">
+    <main>        
         <article class="content px-4">
             @Body
         </article>
@@ -36,8 +63,6 @@
         var currentUri = NavigationManager.ToBaseRelativePath(NavigationManager.Uri).ToLower();
 
         // Verifica se a URL atual é 'home' ou 'cardapio'
-        return currentUri == "" ;
+        return currentUri == "" || currentUri.Contains("cardapio");
     }
 }
-
-@* Comparo diretamente o caminho com "home" ou "cardapio", que são os nomes esperados para as páginas. *@

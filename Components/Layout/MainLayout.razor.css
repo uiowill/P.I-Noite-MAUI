@@ -7,24 +7,35 @@
 main {
     flex: 1;
 }
-
-.sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+/* navbar cabeçalho*/
+.navbar {
+    background-color: #003D6C; /* Azul Escuro */
+    flex-direction: row; /* Garante que os itens fiquem em uma linha */
 }
 
-.top-row {
-    background-color: #dd9933; /* Cor de fundo do Layout (amarelo) */
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-start; /* Muda para alinhar o conteúdo à esquerda */
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-    padding-left: 1rem; /* Adiciona espaçamento à esquerda */
+.nav-link {
+    color: #ffb547;/* Cor do texto dos links */
+    font-style: bold;
+    font-size: larger;
+}
+
+.nav-link:hover {
+    color: #0065A4; /* Azul Claro ao passar o mouse */
+}
+
+/* botão no mobile */
+.navbar .navbar-toggler { 
+    color: #ffb547;
+    border-color: #ffb547; /* Cor da borda do botão */
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-color: #ffb547;  /* Cor do ícone do botão */
 }
 
 .btn-user-admin {
     margin-left: auto; /* Caso precise ajustar a margem para alinhamento no futuro */
-    background-color: #0056b3;
+    background-color: #efa83e;
     color: white;
     border: none;
     border-radius: 20px;
@@ -34,16 +45,11 @@ main {
     transition: background-color 0.3s ease;
 }
 .btn-user-admin:hover {
-    background-color: #dd9933; /* Azul ao clicar */
+    background-color: #0056b3; /* Azul ao clicar */
     color: white; /* Mantém o texto branco */
 }
 
-
 @media (max-width: 640.98px) {
-    .top-row {
-        justify-content: space-between;
-    }
-
         .top-row ::deep a, .top-row ::deep .btn-link {
             margin-left: 0;
         }
