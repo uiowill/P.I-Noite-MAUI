@@ -1,11 +1,12 @@
-.hero-section {
+ /* Custom Styles */
+ .hero-section {
     background: linear-gradient(to right, #f5e250, #dd9933); /* Degradê amarelo */
     color: #0056b3;
     padding: 100px 0;
     text-align: center;
   }
   .hero-section h1 {
-    animation: fadeInDown 2.5s ease;
+    animation: fadeInDown 1.5s ease;
   }
   .hero-section p {
     animation: fadeInUp 2s ease;
@@ -26,14 +27,10 @@
     0% { opacity: 0; }
     100% { opacity: 1; }
   }
-
-  .btn-success  {
-      background-color: #dd9933;
-      border-color: #dd9933;
-      color: white;
+  /* Image styling */
+  .img-fluid {
+    transition: transform 0.3s ease;
   }
-    
-    .btn-success:hover {
-      background-color: #cc8800;
-      border-color: #cc8800;
+  .img-fluid:hover {
+    transform: scale(1.05);
   }
