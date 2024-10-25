@@ -7,7 +7,7 @@ class CadastroProduto{
     public string Categoria{ get; set;}
     public double Valor{ get; set;}
 
-    public List <Produto> produtos { get; set;}
+    public List <Produto> Produtos { get; set;}
     public CadastroProduto(int id,string nome,string categoria,double valor,List <Produto> produtos){
         this.Id = id;
         this.Nome = nome;
